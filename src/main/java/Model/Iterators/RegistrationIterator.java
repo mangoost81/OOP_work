@@ -3,11 +3,11 @@ package Model.Iterators;
 import java.util.Iterator;
 import java.util.List;
 
-public class RegistrationIterator<E> implements Iterator<E> {
-    private List<E> registration;
+public class RegistrationIterator implements Iterator<RegistrationIterator> {
+    private List<RegistrationIterator> registration;
     private int index;
 
-    public RegistrationIterator(List<E> registration) {
+    public RegistrationIterator(List<RegistrationIterator> registration) {
         this.registration = registration;
     }
 
@@ -17,7 +17,7 @@ public class RegistrationIterator<E> implements Iterator<E> {
     }
 
     @Override
-    public E next() {
+    public RegistrationIterator next() {
         return registration.get(index++);
     }
 }

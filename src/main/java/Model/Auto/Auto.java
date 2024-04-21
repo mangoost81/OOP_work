@@ -3,10 +3,11 @@ package Model.Auto;
 import Model.RegistrationElems;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Auto implements Comparable<Auto>, RegistrationElems<Auto> {
+public class Auto implements Comparable<Auto> {
     private String regNumber;
     private String nameOfOwner;
     private long ownerPhoneNumber;
@@ -14,8 +15,8 @@ public class Auto implements Comparable<Auto>, RegistrationElems<Auto> {
     private final List<String> procedure;
 
     public Auto(String regNumber, String nameOfOwner, long ownerPhoneNumber, Country countryOfManufacture) {
-        this.regNumber = regNumber;
-        this.nameOfOwner = nameOfOwner;
+        this.regNumber = regNumber.toLowerCase();
+        this.nameOfOwner = nameOfOwner.toLowerCase();
         this.ownerPhoneNumber = ownerPhoneNumber;
         this.countryOfManufacture = countryOfManufacture;
         procedure = new ArrayList<>();
@@ -41,10 +42,7 @@ public class Auto implements Comparable<Auto>, RegistrationElems<Auto> {
         return ownerPhoneNumber;
     }
 
-    @Override
-    public LocalDate getDate() {
-        return null;
-    }
+
 
 
     public void setOwnerPhoneNumber(long ownerPhoneNumber) {
@@ -63,6 +61,7 @@ public class Auto implements Comparable<Auto>, RegistrationElems<Auto> {
         this.procedure.add(procedure);
     }
 
+
     public List getProcedure(){
         return procedure;
     }
@@ -75,7 +74,7 @@ public class Auto implements Comparable<Auto>, RegistrationElems<Auto> {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Auto{");
+        final StringBuilder sb = new StringBuilder();
         sb.append("Номер автомобиля='").append(regNumber).append('\'');
         sb.append(", Владелец='").append(nameOfOwner).append('\'');
         sb.append(", Телефон владельца=").append(ownerPhoneNumber);

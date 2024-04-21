@@ -2,9 +2,10 @@ import Model.Auto.Auto;
 import Model.Auto.Country;
 import Model.RegistrationForService;
 
-import java.time.LocalDate;
+
+import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.Date;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -15,10 +16,19 @@ public class Main {
                 9776564534L, Country.Asia);
 
         RegistrationForService registration = new RegistrationForService();
-        registration.addAuto(auto1, LocalDate.of(2025,12,12));
-        registration.addAuto(auto2,LocalDate.of(2024,12,23));
-        registration.SortByDate();
+        registration.addAuto(LocalDateTime.of(2024,12,12,12,30),auto1);
+        registration.addAuto(LocalDateTime.of(2024,12,13,12,30),auto2);
+        registration.addAuto(LocalDateTime.of(2023, 12,23,9,00),new Auto("e233rr11",
+                "Bob", 8933456654L,Country.Europe));
+        System.out.println(registration.Dates());
         System.out.println(registration);
+        registration.searchByDateAndTime(LocalDateTime.of(2014,12,12,
+                12,30));
+        registration.toDo(LocalDateTime.of(2012,12,12,12,30),"Oil Change");
+        System.out.println(registration);
+        registration.searchByOwner("Bill");
+
+
 
 
     }
