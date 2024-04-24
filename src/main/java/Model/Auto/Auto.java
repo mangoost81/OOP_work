@@ -1,13 +1,10 @@
 package Model.Auto;
 
-import Model.RegistrationElems;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
-public class Auto implements Comparable<Auto> {
+public class Auto implements Comparable<Auto>{
     private String regNumber;
     private String nameOfOwner;
     private long ownerPhoneNumber;
@@ -84,5 +81,16 @@ public class Auto implements Comparable<Auto> {
         return sb.toString();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Auto auto = (Auto) o;
+        return ownerPhoneNumber == auto.ownerPhoneNumber && Objects.equals(regNumber, auto.regNumber) && Objects.equals(nameOfOwner, auto.nameOfOwner) && countryOfManufacture == auto.countryOfManufacture && Objects.equals(procedure, auto.procedure);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(regNumber, nameOfOwner, ownerPhoneNumber, countryOfManufacture, procedure);
+    }
 }
