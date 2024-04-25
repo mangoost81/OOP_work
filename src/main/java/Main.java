@@ -29,8 +29,7 @@ public class Main {
 //        System.out.println(registration);
 //        registration.searchByDateAndTime(LocalDateTime.of(2014,12,12,
 //                12,30));
-//        registration.toDo(LocalDateTime.of(2012,12,12,12,30),
-//                "Oil Change");
+//
 //        System.out.println(registration);
 //        registration.searchByOwner("Bill");
         View view = new Console();

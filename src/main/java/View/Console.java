@@ -3,15 +3,15 @@ package View;
 import Model.Auto.Auto;
 import Model.Auto.Country;
 import Presenter.Presenter;
-
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Console implements View {
-    public Scanner scanner;
-    public Presenter presenter;
-    public MainMenu mainMenu;
-    public boolean status;
+    private Scanner scanner;
+    private Presenter presenter;
+    private MainMenu mainMenu;
+    private boolean status;
 
     public Console() {
         scanner = new Scanner(System.in);
@@ -25,16 +25,22 @@ public class Console implements View {
         System.out.println("Введите гос.номер авто:");
         String regnum = scanner.nextLine();
         System.out.println("Введите имя владельца :");
-        String name = scanner.nextLine();
+        String name = scanner.nextLine().toLowerCase();
         System.out.println("введите номер телефона владельца: ");
         long phone = scanner.nextLong();
         System.out.println("Введите страну производства авто: ");
-        String countryparse = scanner.nextLine();
-        Country country = Country.valueOf(countryparse);
-        System.out.println("Введите время на которое авто будет записано: ");
-        LocalDateTime time = LocalDateTime.parse(scanner.nextLine());
+        Country country = Country.valueOf(scanner.next().toUpperCase());
+        System.out.println("Введите дату в формате гггг-мм-дд : ");
+        String inputDate = scanner.next();
+        System.out.println("Введите время в формате чч:мм : " );
+        String inputTime = scanner.next();
+        scanner.nextLine();
+        String dateTime = inputDate + "T" + inputTime;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
+        LocalDateTime time = LocalDateTime.parse(dateTime, formatter);
 
         presenter.addAuto(time, new Auto(regnum, name, phone, country));
+
     }
 
 
@@ -74,19 +80,24 @@ public class Console implements View {
 
     public void searchByCountryOfManufacturing(){
         System.out.println("Введите страну производства авто: ");
-        Country country = Country.valueOf(scanner.nextLine());
+        Country country = Country.valueOf(scanner.nextLine().toUpperCase());
         presenter.searchByCountryOfManufactoring(country);
     }
 
     public void searchByDateTime(){
-        System.out.println("введите дату: ");
-        LocalDateTime time = LocalDateTime.parse(scanner.nextLine());
+        System.out.println("Введите дату в формате гггг-мм-дд : ");
+        String inputDate = scanner.next();
+        System.out.println("Введите время в формате чч:мм : " );
+        String inputTime = scanner.next();
+        String dateTime = inputDate + "T" + inputTime;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
+        LocalDateTime time = LocalDateTime.parse(dateTime, formatter);
         presenter.searchByDateTime(time);
     }
 
     public void searchByOwner(){
         System.out.println("Введите имя владельца: ");
-        String name = scanner.nextLine();
+        String name = scanner.nextLine().toLowerCase();
         presenter.searchByOwner(name);
     }
 
