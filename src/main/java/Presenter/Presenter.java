@@ -2,8 +2,7 @@ package Presenter;
 
 import Model.Auto.Auto;
 import Model.Auto.Country;
-import Model.Service;
-import View.Console;
+import Model.Service.Service;
 import View.View;
 
 import java.time.LocalDateTime;

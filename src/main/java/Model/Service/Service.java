@@ -1,7 +1,8 @@
-package Model;
+package Model.Service;
 
 import Model.Auto.Auto;
 import Model.Auto.Country;
+import Model.RegistrationForService;
 
 import java.time.LocalDateTime;
 
@@ -50,7 +51,12 @@ public class Service {
 
     public void loadFromFile(){
         FileHandler load = new FileHandler();
-        load.readFile("C:\\Learning\\Java\\AutoService\\AutoService\\src\\main\\java\\Model\\file.txt");
+
+        registration = (RegistrationForService) load.readFile("C:\\Learning\\Java\\AutoService\\AutoService\\src\\main" +
+                "\\java\\Model\\file.txt");
+        if(load!=null){
+            System.out.println("Load complete");
+        }
     }
 
 

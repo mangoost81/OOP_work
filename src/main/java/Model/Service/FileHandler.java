@@ -1,4 +1,4 @@
-package Model;
+package Model.Service;
 
 import java.io.*;
 
@@ -23,4 +23,5 @@ public class FileHandler {
             return null;
         }
     }
+
 }
