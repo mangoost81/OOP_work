@@ -39,7 +39,18 @@ public class Service {
     }
 
     public void getRegistrationInfo() {
-        registration.getRegistrationInfo();
+        System.out.println(registration);
+    }
+
+    public void saveToFile(){
+        FileHandler save = new FileHandler();
+        save.saveFile(registration,"C:\\Learning\\Java\\A" +
+                "utoService\\AutoService\\src\\main\\java\\Model\\file.txt");
+    }
+
+    public void loadFromFile(){
+        FileHandler load = new FileHandler();
+        load.readFile("C:\\Learning\\Java\\AutoService\\AutoService\\src\\main\\java\\Model\\file.txt");
     }
 
 

@@ -75,10 +75,9 @@ public class RegistrationForService implements Serializable {
 
 
     public String toString() {
-        final StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         for (Map.Entry<LocalDateTime, Auto> entry : autoList.entrySet()) {
-            sb.append(entry);
-            sb.append("\n");
+            sb.append(entry.getKey()).append(": ").append(entry.getValue()).append("\n");
         }
         return sb.toString();
     }
@@ -95,7 +94,5 @@ public class RegistrationForService implements Serializable {
         System.out.println(autoList);
     }
 
-    public LocalDateTime getDate() {
-        return date;
-    }
+
 }

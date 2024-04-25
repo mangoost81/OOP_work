@@ -26,9 +26,10 @@ public class Console implements View {
         String regnum = scanner.nextLine();
         System.out.println("Введите имя владельца :");
         String name = scanner.nextLine().toLowerCase();
-        System.out.println("введите номер телефона владельца: ");
+        System.out.println("введите номер телефона владельца в численном формате: ");
         long phone = scanner.nextLong();
-        System.out.println("Введите страну производства авто: ");
+        System.out.println("Введите страну производства авто: \n " +
+                "USA,Asia,Europe,Russia");
         Country country = Country.valueOf(scanner.next().toUpperCase());
         System.out.println("Введите дату в формате гггг-мм-дд : ");
         String inputDate = scanner.next();
@@ -67,9 +68,16 @@ public class Console implements View {
     }
 
     public void addProcedure() {
-        System.out.println("Введите дату и время :");
-        LocalDateTime time = LocalDateTime.parse(scanner.nextLine());
-        System.out.println("Введите процудуру: ");
+        System.out.println("Введите дату в формате гггг-мм-дд : ");
+        String inputDate = scanner.next();
+        System.out.println("Введите время в формате чч:мм : " );
+        String inputTime = scanner.next();
+        scanner.nextLine();
+        String dateTime = inputDate + "T" + inputTime;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
+        LocalDateTime time = LocalDateTime.parse(dateTime, formatter);
+
+        System.out.println("Введите процедуру: ");
         String procedure = scanner.nextLine();
         presenter.addProcedure(time, procedure);
     }
@@ -105,6 +113,13 @@ public class Console implements View {
         System.out.println("Введите номер телефона :");
         long phone = scanner.nextLong();
         presenter.searchByPhoneNumber(phone);
+    }
+    public void saveToFile(){
+        presenter.saveToFile();
+    }
+
+    public void loadFromFile(){
+        presenter.loadFromFile();
     }
 
 

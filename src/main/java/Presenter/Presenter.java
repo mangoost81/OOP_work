@@ -47,4 +47,14 @@ public class Presenter {
         service.searchByPhoneNumber(number);
     }
 
+    public void saveToFile(){
+        service.saveToFile();
+    }
+
+    public void loadFromFile(){
+        service.loadFromFile();
+    }
+
+
+
 }

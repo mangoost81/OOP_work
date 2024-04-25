@@ -5,8 +5,7 @@ import View.Console;
 public class SearchByDateTime extends Command{
 
     public SearchByDateTime(Console console) {
-        super(console, "Ввведите дату и время в формате: ГГГГ,ММ,ДД,чч,мм \n" +
-                "Г -год. М-месяц. Д - день. ч - час. м - минуты");
+        super(console, "Введите дату и время для поиска: ");
     }
 
     @Override

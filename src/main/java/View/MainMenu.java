@@ -16,6 +16,10 @@ public class MainMenu {
         commandList.add(new SearchByDateTime(console));
         commandList.add(new SearchByOwner(console));
         commandList.add(new SearchByPhoneNumber(console));
+        commandList.add(new AddProcedure(console));
+        commandList.add(new Finish(console));
+        commandList.add(new SaveToFile(console));
+        commandList.add(new LoadFromFile(console));
 
 
     }

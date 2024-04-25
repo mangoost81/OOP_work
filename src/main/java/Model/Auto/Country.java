@@ -1,5 +1,7 @@
 package Model.Auto;
 
-public enum Country {
+import java.io.Serializable;
+
+public enum Country implements Serializable {
     USA,EUROPE,ASIA,RUSSIA;
 }

@@ -3,7 +3,7 @@ package View.command;
 import View.Console;
 
 public class AddProcedure extends Command{
-    public AddProcedure(Console console, String description) {
+    public AddProcedure(Console console) {
         super(console, "Добавьте работы, проведенные на авто.");
     }
 

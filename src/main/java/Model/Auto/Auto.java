@@ -1,10 +1,11 @@
 package Model.Auto;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Auto implements Comparable<Auto>{
+public class Auto implements Comparable<Auto>, Serializable {
     private String regNumber;
     private String nameOfOwner;
     private long ownerPhoneNumber;
