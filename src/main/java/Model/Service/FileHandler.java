@@ -2,7 +2,7 @@ package Model.Service;
 
 import java.io.*;
 
-public class FileHandler {
+public class FileHandler implements SavebleAndReadeble{
     public boolean saveFile(Serializable serializable, String filePath) {
         try (ObjectOutputStream objectOutputStream = new ObjectOutputStream
                 (new FileOutputStream(filePath))) {

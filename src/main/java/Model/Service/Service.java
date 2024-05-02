@@ -9,6 +9,8 @@ import java.time.LocalDateTime;
 
 public class Service {
     private RegistrationForService registration;
+    private SavebleAndReadeble saveload = new FileHandler();
+
 
     public Service() {
         registration = new RegistrationForService();
@@ -44,17 +46,17 @@ public class Service {
     }
 
     public void saveToFile(){
-        FileHandler save = new FileHandler();
-        save.saveFile(registration,"C:\\Learning\\Java\\A" +
+
+        saveload.saveFile(registration,"C:\\Learning\\Java\\A" +
                 "utoService\\AutoService\\src\\main\\java\\Model\\file.txt");
     }
 
     public void loadFromFile(){
-        FileHandler load = new FileHandler();
 
-        registration = (RegistrationForService) load.readFile("C:\\Learning\\Java\\AutoService\\AutoService\\src\\main" +
+
+        registration = (RegistrationForService) saveload.readFile("C:\\Learning\\Java\\AutoService\\AutoService\\src\\main" +
                 "\\java\\Model\\file.txt");
-        if(load!=null){
+        if(saveload!=null){
             System.out.println("Load complete");
         }
     }
